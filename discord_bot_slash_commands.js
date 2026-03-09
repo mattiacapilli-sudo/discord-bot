@@ -1,4 +1,5 @@
 const http = require('http');
+
 require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
@@ -373,4 +374,5 @@ http.createServer((req, res) => {
 }).listen(PORT, '0.0.0.0', () => {
   console.log(`Server HTTP attivo sulla porta ${PORT}`);
 });
+
 })();
