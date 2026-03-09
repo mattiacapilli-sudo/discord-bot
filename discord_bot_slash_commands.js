@@ -359,20 +359,15 @@ client.on('interactionCreate', async interaction => {
   }
 });
 
-(async () => {
-  try {
-    await registerCommands();
-    await client.login(process.env.BOT_TOKEN);
-  } catch (error) {
-    console.error('Errore avvio bot:', error);
-  }
 const PORT = process.env.PORT || 10000;
+
+console.log('PRIMA DI APRIRE LA PORTA', PORT);
 
 http.createServer((req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/plain' });
   res.end('Bot online');
 }).listen(PORT, '0.0.0.0', () => {
-  console.log(`Server HTTP attivo sulla porta ${PORT}`);
+  console.log(`SERVER HTTP ATTIVO SULLA PORTA ${PORT}`);
 });
 
 (async () => {
