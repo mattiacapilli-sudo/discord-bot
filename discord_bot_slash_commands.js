@@ -366,7 +366,7 @@ client.on('interactionCreate', async interaction => {
   } catch (error) {
     console.error('Errore avvio bot:', error);
   }
-  const PORT = process.env.PORT || 10000;
+const PORT = process.env.PORT || 10000;
 
 http.createServer((req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/plain' });
@@ -375,4 +375,11 @@ http.createServer((req, res) => {
   console.log(`Server HTTP attivo sulla porta ${PORT}`);
 });
 
+(async () => {
+  try {
+    await registerCommands();
+    await client.login(process.env.BOT_TOKEN);
+  } catch (error) {
+    console.error('Errore avvio bot:', error);
+  }
 })();
